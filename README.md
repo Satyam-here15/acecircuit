@@ -107,11 +107,16 @@ npm start
 | `DB_USERNAME` | Database username |
 | `DB_PASSWORD` | Database password |
 
+---
+
+
+---
 
 ## 🔑 Admin Access
 
 To access the admin panel, click **"LOGIN AS ADMIN"** on the login page and use admin credentials.
 
+---
 
 ## 📁 Project Structure
 
@@ -147,4 +152,3 @@ acecircuit/
 ## ⭐ Show Your Support
 
 If you found this project helpful, please give it a ⭐ on GitHub!
-
