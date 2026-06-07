@@ -19,6 +19,7 @@ export default function Layout({ children }) {
   { path: '/history', label: 'History', icon: '◎' },
   { path: '/leaderboard', label: 'Leaderboard', icon: '◆' },
   { path: '/profile', label: 'Profile', icon: '◉' },
+  { path: '/resume', label: 'Resume', icon: '◑' },
 ];
 
   return (

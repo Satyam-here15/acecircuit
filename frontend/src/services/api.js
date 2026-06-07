@@ -28,4 +28,15 @@ export const userAPI = {
   updateProfile: (data) => api.put('/api/user/profile', data),
 };
 
+export const resumeAPI = {
+  analyze: (file, targetRole) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('targetRole', targetRole);
+    return api.post('/api/resume/analyze', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+  }
+};
+
 export default api;

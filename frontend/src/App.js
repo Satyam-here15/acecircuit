@@ -10,6 +10,7 @@ import History from './pages/History';
 import Leaderboard from './pages/Leaderboard';
 import AdminPanel from './pages/AdminPanel';
 import Profile from './pages/Profile';
+import ResumeAnalyzer from './pages/ResumeAnalyzer';
 import Layout from './components/Layout';
 import SplashScreen from './components/SplashScreen';
 
@@ -39,7 +40,9 @@ const AppRoutes = () => {
       <Route path="/login" element={token ? (isAdmin ? <Navigate to="/admin" /> : <Navigate to="/dashboard" />) : <Login />} />
       <Route path="/register" element={token ? <Navigate to="/dashboard" /> : <Register />} />
       <Route path="/" element={token ? (isAdmin ? <Navigate to="/admin" /> : <Navigate to="/dashboard" />) : <Navigate to="/login" />} />
+      
       <Route path="/dashboard" element={<UserRoute><Layout><Dashboard /></Layout></UserRoute>} />
+      <Route path="/resume" element={<UserRoute><Layout><ResumeAnalyzer /></Layout></UserRoute>} />
       <Route path="/interview" element={<UserRoute><Layout><Interview /></Layout></UserRoute>} />
       <Route path="/results/:sessionId" element={<UserRoute><Layout><Results /></Layout></UserRoute>} />
       <Route path="/history" element={<UserRoute><Layout><History /></Layout></UserRoute>} />

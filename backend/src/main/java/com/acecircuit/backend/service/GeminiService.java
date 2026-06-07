@@ -104,4 +104,51 @@ public class GeminiService {
         );
         return callGroq(prompt);
     }
+    public Map<String, Object> analyzeResume(String resumeText, String targetRole) {
+    String prompt = String.format(
+        "You are an expert tech recruiter and career coach. Analyze this resume for a %s position.\n\n" +
+        "RESUME:\n%s\n\n" +
+        "Respond in this EXACT JSON format only, no extra text:\n" +
+        "{\n" +
+        "  \"overall_score\": <number 1-100>,\n" +
+        "  \"summary\": \"<2 sentence overall assessment>\",\n" +
+        "  \"strengths\": [\"<strength 1>\", \"<strength 2>\", \"<strength 3>\"],\n" +
+        "  \"weaknesses\": [\"<weakness 1>\", \"<weakness 2>\", \"<weakness 3>\"],\n" +
+        "  \"missing_skills\": [\"<skill 1>\", \"<skill 2>\", \"<skill 3>\", \"<skill 4>\"],\n" +
+        "  \"improvements\": [\"<tip 1>\", \"<tip 2>\", \"<tip 3>\"],\n" +
+        "  \"ats_score\": <number 1-100>,\n" +
+        "  \"hire_recommendation\": \"<Strong Yes / Yes / Maybe / No>\"\n" +
+        "}",
+        targetRole, resumeText
+    );
+
+    String raw = callGroq(prompt);
+    try {
+        int start = raw.indexOf('{');
+        int end = raw.lastIndexOf('}') + 1;
+        if (start >= 0 && end > start) {
+            String json = raw.substring(start, end);
+            JsonNode node = objectMapper.readTree(json);
+            Map<String, Object> result = new HashMap<>();
+            result.put("overall_score", node.path("overall_score").asInt(50));
+            result.put("summary", node.path("summary").asText(""));
+            result.put("strengths", node.path("strengths"));
+            result.put("weaknesses", node.path("weaknesses"));
+            result.put("missing_skills", node.path("missing_skills"));
+            result.put("improvements", node.path("improvements"));
+            result.put("ats_score", node.path("ats_score").asInt(50));
+            result.put("hire_recommendation", node.path("hire_recommendation").asText("Maybe"));
+            return result;
+        }
+    } catch (Exception e) {
+        System.err.println("Resume parse error: " + e.getMessage());
+    }
+
+    Map<String, Object> fallback = new HashMap<>();
+    fallback.put("overall_score", 50);
+    fallback.put("summary", "Analysis complete.");
+    fallback.put("ats_score", 50);
+    fallback.put("hire_recommendation", "Maybe");
+    return fallback;
+}
 }
