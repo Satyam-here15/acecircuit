@@ -120,26 +120,27 @@ To access the admin panel, click **"LOGIN AS ADMIN"** on the login page and use 
 
 ## 📁 Project Structure
 
+```
 acecircuit/
 ├── backend/
 │   ├── src/main/java/com/acecircuit/backend/
-│   │   ├── controller/        # REST Controllers
-│   │   ├── service/           # Business Logic + AI
-│   │   ├── model/             # JPA Entities
-│   │   ├── repository/        # Data Access
-│   │   ├── security/          # JWT Auth
-│   │   └── config/            # App Configuration
+│   │   ├── controller/     # REST Controllers
+│   │   ├── service/        # Business Logic + AI
+│   │   ├── model/          # JPA Entities
+│   │   ├── repository/     # Data Access
+│   │   ├── security/       # JWT Auth
+│   │   └── config/         # App Configuration
 │   ├── Dockerfile
 │   └── pom.xml
 ├── frontend/
-│   ├── src/
-│   │   ├── pages/             # React Pages
-│   │   ├── components/        # Reusable Components
-│   │   ├── services/          # API Calls
-│   │   ├── context/           # Auth Context
-│   │   └── utils/             # Helper Functions
-│   └── package.json
+│   └── src/
+│       ├── pages/          # React Pages
+│       ├── components/     # Reusable Components
+│       ├── services/       # API Calls
+│       ├── context/        # Auth Context
+│       └── utils/          # Helper Functions
 └── README.md
+```
 
 ---
 
