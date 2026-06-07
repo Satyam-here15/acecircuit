@@ -107,31 +107,44 @@ npm start
 | `DB_USERNAME` | Database username |
 | `DB_PASSWORD` | Database password |
 
----
-
-## 📸 Screenshots
-
-### Login Page
-> Futuristic dark-themed login with admin access
-
-### Dashboard
-> User stats, quick start interview, recent sessions
-
-### AI Interview
-> Real-time AI-generated questions with instant evaluation
-
-### Resume Analyzer
-> Upload PDF, get ATS score and detailed AI feedback
-
-### Admin Panel
-> Full platform visibility with user management and analytics
-
----
 
 ## 🔑 Admin Access
 
 To access the admin panel, click **"LOGIN AS ADMIN"** on the login page and use admin credentials.
 
----
 
 ## 📁 Project Structure
+
+acecircuit/
+├── backend/
+│   ├── src/main/java/com/acecircuit/backend/
+│   │   ├── controller/        # REST Controllers
+│   │   ├── service/           # Business Logic + AI
+│   │   ├── model/             # JPA Entities
+│   │   ├── repository/        # Data Access
+│   │   ├── security/          # JWT Auth
+│   │   └── config/            # App Configuration
+│   ├── Dockerfile
+│   └── pom.xml
+├── frontend/
+│   ├── src/
+│   │   ├── pages/             # React Pages
+│   │   ├── components/        # Reusable Components
+│   │   ├── services/          # API Calls
+│   │   ├── context/           # Auth Context
+│   │   └── utils/             # Helper Functions
+│   └── package.json
+└── README.md
+
+---
+
+## 👨‍💻 Author
+
+**Satyam** — [GitHub](https://github.com/Satyam-here15)
+
+---
+
+## ⭐ Show Your Support
+
+If you found this project helpful, please give it a ⭐ on GitHub!
+
